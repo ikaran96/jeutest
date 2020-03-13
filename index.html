@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Jeu</title>
+      </head>
+  <body >
+	  <div class="jeu">
+
+    <script>
+        var joueur = prompt("Pierre, feuille ou cizo?"); // variable joueur
+
+        if (! joueur){
+            document.write("fo chosir")
+        }else{
+            document.write("<p>Joueur:" + " " + joueur + "</p>"); // Texte choix joueur
+        }
+
+		var ordi = Math.random(); // variable ordi
+		if (ordi < 0.33){
+			ordi = "pierre";
+		}else if (ordi < 0.66){
+			ordi = "feuille";
+		} else {
+			ordi = "cizo";
+		}
+		document.write("<p>Ordi:" + " " + ordi + "</p>"); //Texte choix ordi
+
+
+
+		var compare = function(choix1, choix2){ 
+			if (choix1 === choix2){ // même choix
+				return "Egalitey";
+			}
+			if (choix1 === "pierre"){
+				if (choix2 === "cizo"){  // pierre vs cizo
+					return "T'as perdu";
+				}else{
+					return "Bravo la cité"; // pierre vs feuille
+				}
+			}
+			if (choix1=== "feuille"){
+				if (choix2 === "cizo"){ //feuille vs cizo
+					return "T'as perdu";
+				}else {
+					return "Bravo la cité"; // feuille vs pierre
+				}
+			}
+
+			if (choix1 ==="cizo"){
+				if(choix2==="pierre"){
+					return "T'as perdu"; //cizo vs pierre
+				}else {
+					return "Bravo la cité"; //cizo vs feuille
+				}
+			}
+		};
+
+		var results = compare(joueur, ordi); //compare joueur et ordi
+		document.write("<br><hr><br>" + results); //écrit perdu ou gagné
+		
+
+      
+
+	</script>
+	</div>
+
+
+  </body>
+</html>
